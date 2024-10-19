@@ -1,0 +1,5 @@
+- name: configuring frontend
+  hosts: frontend.ganeshsiripuram.tech
+  become: yes
+  roles:
+  - frontend
