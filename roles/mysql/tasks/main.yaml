@@ -1,0 +1,32 @@
+
+tasks:
+- name: installing pymsql module
+  ansible.builtin.pip:
+    name: 
+    - PyMySQL
+    executable: pip3.9
+- name: installing sql server
+  ansible.builtin.package:
+    name: mysql-server
+    state: present
+
+- name: start mysql server
+  ansible.builtin.service:
+    name: mysqld
+    state: started
+
+- name: creating expense user
+  community.mysql.mysql_info:
+    login_user: root
+    login_password: "{{password}}"
+    login_host: "{{mysql_host}}"
+  ignore_errors: true
+  register: mysql_info
+
+- name: print mysql info
+  ansible.builtin.debug:
+    msg: "{{mysql_info}}"
+
+- name: setting up root password
+  ansible.builtin.command: "mysql_secure_installation --set-root-pass {{password}}"
+  when: mysql_info.failed is true
