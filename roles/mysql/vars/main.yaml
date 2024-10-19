@@ -1,3 +1,2 @@
-vars:
-  password: ExpenseApp@1
-  mysql_host: mysql.ganeshsiripuram.tech
+password: ExpenseApp@1
+mysql_host: mysql.ganeshsiripuram.tech
