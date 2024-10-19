@@ -33,7 +33,7 @@
 
 - name: copying the content
   ansible.builtin.template:
-    src: expense.conf
+    src: expense.conf.j2
     dest: /etc/nginx/default.d/expense.conf
 
 - name: restart the service
