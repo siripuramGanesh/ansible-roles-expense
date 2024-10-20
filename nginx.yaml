@@ -1,6 +1,7 @@
 - name: installing nginx
   hosts: all
   become: yes
+  serial: 3
   #vars_files:
   #- /var/expense/credentials_nginx.yaml
   tasks:
