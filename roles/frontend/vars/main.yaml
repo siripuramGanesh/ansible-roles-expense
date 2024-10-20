@@ -1,1 +1,3 @@
 backend_host: backend.ganeshsiripuram.tech
+app_location: /usr/share/nginx/html
+component: frontend

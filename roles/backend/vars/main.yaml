@@ -1,2 +1,4 @@
   login_password: ExpenseApp@1
   login_host: mysql.ganeshsiripuram.tech
+  app_location: /app
+  component: backend

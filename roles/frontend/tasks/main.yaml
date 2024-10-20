@@ -8,28 +8,10 @@
     name: nginx
     state: started
 
-- name: remove the default content
-  ansible.builtin.file:
-    path: /usr/share/nginx/html/*
-    state: absent
-
-- name: downloading the content
-  ansible.builtin.get_url:
-    url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-    dest: /tmp/frontend.zip
-
-
-- name: changing the directory
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: directory
-
-
-- name: unziping the content
-  ansible.builtin.unarchive:
-    src: /tmp/frontend.zip
-    dest: /usr/share/nginx/html
-    remote_src: yes
+- name: importing code from other role
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-pre-req.yaml
 
 - name: copying the content
   ansible.builtin.template:
