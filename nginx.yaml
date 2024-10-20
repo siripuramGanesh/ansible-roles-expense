@@ -1,6 +1,8 @@
 - name: installing nginx
-  hosts: nginx
+  hosts: all
   become: yes
+  vars_files:
+  - 
   tasks:
   - name: installing nginx
     ansible.builtin.package:
