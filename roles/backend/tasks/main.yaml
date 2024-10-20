@@ -23,6 +23,8 @@
 
 
 - name: installing dependencies
+  tags:
+  - deployment
   ansible.builtin.command: npm install
   args:
     chdir: /app
@@ -49,6 +51,8 @@
     state: import
 
 - name: starting the service
+  tags: 
+  - deployment
   ansible.builtin.service:
     name: backend
     state: restarted

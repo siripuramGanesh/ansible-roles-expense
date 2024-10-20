@@ -1,14 +1,20 @@
 - name: remove the default content
+  tags:
+  - deployment
   ansible.builtin.file:
     path: "{{ app_location }}"
     state: absent
 
 - name: creating a directory
+  tags:
+  - deployment
   ansible.builtin.file:
     path: "{{ app_location }}"
     state: directory
 
 - name: download the code and unzipping
+  tags:
+  - deployment
   ansible.builtin.unarchive:
     src: "https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{ component }}-v2.zip"
     dest: "{{ app_location }}"
